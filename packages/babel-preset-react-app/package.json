@@ -1,6 +1,6 @@
 {
   "name": "babel-preset-react-app-with-rhl",
-  "version": "60.1.0",
+  "version": "60.2.0",
   "description": "Babel preset used by Create React App",
   "repository": {
     "type": "git",
