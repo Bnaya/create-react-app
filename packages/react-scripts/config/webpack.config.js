@@ -714,31 +714,60 @@ module.exports = function (webpackEnv) {
       // TypeScript type checking
       useTypeScript &&
         new ForkTsCheckerWebpackPlugin({
-          typescript: resolve.sync('typescript', {
-            basedir: paths.appNodeModules,
-          }),
-          async: isEnvDevelopment,
-          checkSyntacticErrors: true,
-          resolveModuleNameModule: process.versions.pnp
-            ? `${__dirname}/pnpTs.js`
-            : undefined,
-          resolveTypeReferenceDirectiveModule: process.versions.pnp
-            ? `${__dirname}/pnpTs.js`
-            : undefined,
-          tsconfig: paths.appTsConfig,
-          reportFiles: [
+          typescript: {
+            typescriptPath: resolve.sync('typescript', {
+              basedir: paths.appNodeModules,
+            }),
+            configFile: paths.appTsConfig,
+            diagnosticOptions: {
+              semantic: true,
+              syntactic: true,
+            },
+            build: true,
+          },
+          issue: {
             // This one is specifically to match during CI tests,
             // as micromatch doesn't match
             // '../cra-template-typescript/template/src/App.tsx'
             // otherwise.
-            '../**/src/**/*.{ts,tsx}',
-            '**/src/**/*.{ts,tsx}',
-            '!**/src/**/__tests__/**',
-            '!**/src/**/?(*.)(spec|test).*',
-            '!**/src/setupProxy.*',
-            '!**/src/setupTests.*',
-          ],
-          silent: true,
+            exclude: [
+              {
+                origin: 'eslint',
+                file: '../**/src/**/*.{ts,tsx}',
+              },
+              {
+                origin: 'eslint',
+                file: '**/src/**/*.{ts,tsx}',
+              },
+              {
+                origin: 'eslint',
+                file: '!**/src/**/__tests__/**',
+              },
+              {
+                origin: 'eslint',
+                file: '!**/src/**/?(*.)(spec|test).*',
+              },
+              {
+                origin: 'eslint',
+                file: '!**/src/setupProxy.*',
+              },
+              {
+                origin: 'eslint',
+                file: '!**/src/setupTests.*',
+              },
+            ],
+          },
+          async: isEnvDevelopment,
+          // resolveModuleNameModule: process.versions.pnp
+          // ? `${__dirname}/pnpTs.js`
+          // : undefined,
+          // resolveTypeReferenceDirectiveModule: process.versions.pnp
+          // ? `${__dirname}/pnpTs.js`
+          // : undefined,
+          logger: {
+            infrastructure: 'silent',
+            issues: 'silent',
+          },
           // The formatter is invoked directly in WebpackDevServerUtils during development
           formatter: isEnvProduction ? typescriptFormatter : undefined,
         }),
