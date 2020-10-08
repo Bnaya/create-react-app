@@ -148,14 +148,13 @@ function createCompiler({
 
     forkTsCheckerWebpackPlugin
       .getCompilerHooks(compiler)
-      .receive.tap('afterTypeScriptCheck', (diagnostics, lints) => {
-        const allMsgs = [...diagnostics, ...lints];
+      .issues.tap('afterTypeScriptCheck', issues => {
         const format = message =>
           `${message.file}\n${typescriptFormatter(message, true)}`;
 
         tsMessagesResolver({
-          errors: allMsgs.filter(msg => msg.severity === 'error').map(format),
-          warnings: allMsgs
+          errors: issues.filter(msg => msg.severity === 'error').map(format),
+          warnings: issues
             .filter(msg => msg.severity === 'warning')
             .map(format),
         });
