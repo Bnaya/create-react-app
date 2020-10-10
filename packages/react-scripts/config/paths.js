@@ -116,6 +116,7 @@ if (
   __dirname.indexOf(path.join('packages', 'react-scripts', 'config')) !== -1
 ) {
   // const templatePath = '../cra-template/template';
+  // Trick react-scripts to work in-place with our top level dir
   const templatePath = '../../my-react-app';
   module.exports = {
     dotenv: resolveOwn(`${templatePath}/.env`),
