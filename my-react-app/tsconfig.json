@@ -14,12 +14,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "react"
+    "jsx": "react",
+    "types": []
   },
   "include": ["src"],
-  "paths": {
-    "@my-lib/*": ["../my-lib/src/*"]
-  },
   "references": [
     {
       "path": "../my-lib"

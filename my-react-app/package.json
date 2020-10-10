@@ -12,14 +12,15 @@
     "@types/react-dom": "^16.9.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "/home/martin/git/temp/create-react-app/packages/react-scripts/react-scripts-3.4.1.tgz",
-    "typescript": "~3.7.2"
+    "typescript": "^4.0.2",
+    "react-scripts": "*"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "react-scripts": "node ../packages/react-scripts/bin/react-scripts.js",
+    "start": "yarn -s react-scripts start",
+    "build": "yarn -s react-scripts build",
+    "test": "yarn -s react-scripts test",
+    "eject": "yarn -s react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
