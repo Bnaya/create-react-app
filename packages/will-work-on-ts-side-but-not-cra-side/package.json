@@ -1,0 +1,11 @@
+{
+  "name": "will-work-on-ts-side-but-not-cra-side",
+  "version": "1.0.0",
+  "private": true,
+  "main": "dist/index.js",
+  "author": "Bnaya Peretz",
+  "license": "MIT",
+  "devDependencies": {
+    "typescript": "^4.0.3"
+  }
+}

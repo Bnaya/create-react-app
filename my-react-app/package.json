@@ -13,7 +13,8 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "typescript": "^4.0.2",
-    "react-scripts": "*"
+    "react-scripts": "*",
+    "will-work-on-ts-side-but-not-cra-side": "*"
   },
   "scripts": {
     "start": "react-scripts start",

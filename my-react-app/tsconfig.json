@@ -25,6 +25,9 @@
     },
     {
       "path": "src/libs/my-react-lib"
+    },
+    {
+      "path": "../packages/will-work-on-ts-side-but-not-cra-side"
     }
   ]
 }
