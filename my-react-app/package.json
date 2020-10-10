@@ -16,11 +16,10 @@
     "react-scripts": "*"
   },
   "scripts": {
-    "react-scripts": "node ../packages/react-scripts/bin/react-scripts.js",
-    "start": "yarn -s react-scripts start",
-    "build": "yarn -s react-scripts build",
-    "test": "yarn -s react-scripts test",
-    "eject": "yarn -s react-scripts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
