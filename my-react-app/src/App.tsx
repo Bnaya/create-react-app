@@ -4,6 +4,7 @@ import './App.css';
 
 // Works but requires a separate build step
 import { greeting } from './libs/my-lib/helloWorld';
+import { Foo } from './libs/my-react-lib/Some';
 // import { greeting as jsgreeting  } from './libs/my-lib/jshelloWorld';
 
 // Fails with: Module parse failed: Unexpected token (4:26) / You may need an additional loader to handle the result of these loaders.
@@ -22,6 +23,9 @@ function App() {
     <div className="App">
       <header className="App-header">
         <p>{greeting(34563456)}</p>
+        <p>
+          <Foo />
+        </p>
       </header>
     </div>
   );

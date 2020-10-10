@@ -22,6 +22,9 @@
   "references": [
     {
       "path": "src/libs/my-lib"
+    },
+    {
+      "path": "src/libs/my-react-lib"
     }
   ]
 }
